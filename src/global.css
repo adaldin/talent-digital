@@ -1,0 +1,12 @@
+.btn_green{
+    background-color: #569B51;
+}
+
+.dropper{
+    box-shadow: 0px 0px 13px 5px rgba(106,185,114,0.83);
+    -webkit-box-shadow: 0px 0px 13px 5px rgba(106,185,114,0.83);
+    -moz-box-shadow: 0px 0px 13px 5px rgba(106,185,114,0.83);  
+}
+.dropper__description{
+    font-size: 1rem;
+}
