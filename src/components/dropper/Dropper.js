@@ -7,6 +7,8 @@ import Button from "react-bootstrap/Button";
 import ModalDropper from "../modal-dropper/Modal";
 
 function Dropper() {
+  // const isAnyFileLoaded=true/false
+  // const isFormatOk=true/false
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
