@@ -1,41 +1,79 @@
 import "../../global.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ModalDropper from "../modal-dropper/Modal";
+import { fileTypes } from "../../fileTypes";
 // filepond
-import { FilePond, File, registerPlugin } from "react-filepond";
-import "filepond/dist/filepond.min.css";
-import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
-import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+import { useDropzone } from "react-dropzone";
 
 function Dropper() {
   // hooks
   // const isAnyFileLoaded=true/false
   // const isFormatOk=true/false
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
   const [show, setShow] = useState(false);
+  const [invalidFiles, setInvalidFiles] = useState([]);
+  const [validFiles, setValidFiles] = useState([]);
+
+  useEffect(() => {
+    getFiles();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [acceptedFiles]);
 
   // Logic
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  function getFiles() {
+    acceptedFiles.map((file) => {
+      if (fileTypes.includes(file.type)) {
+        const newValidFiles = [];
+        newValidFiles.push(file);
+        setValidFiles(newValidFiles);
+      } else {
+        const newInvalidFiles = [];
+        invalidFiles.push(file);
+        setInvalidFiles(newInvalidFiles);
+        setShow(true);
+      }
+      return file;
+    });
+  }
 
   return (
     <Container fluid className="bg-dark">
       <Row className="p-4">
-        {show && <ModalDropper show={show} handleClose={handleClose} />}
+        {show && (
+          <ModalDropper
+            show={show}
+            handleClose={handleClose}
+            invalidFiles={invalidFiles}
+          />
+        )}
         <Col
           xs={12}
           md={8}
           className="text-white d-flex flex-column gap-5 my-3"
         >
           <div
-            className="dropper border border-success rounded d-flex justify-content-center align-items-center"
+            {...getRootProps()}
+            className="dropper border border-success rounded d-flex  flex-column justify-content-center align-items-center"
             style={{ minHeight: "400px" }}
           >
-            <p className="text-center fs-4">ARRASTRA TUS ARCHIVOS AQUÍ</p>
+            <label htmlFor="dropOff" className="text-white text-center fs-4">
+              {validFiles.length > 0
+                ? `Tu archivo ${validFiles.map(
+                    (file) => file.name
+                  )} se ha subido correctamente.`
+                : `ARRASTRA TUS ARCHIVOS AQUÍ`}
+            </label>
+            <input
+              className="bg-dark w-100 border-0"
+              id="dropOff"
+              {...getInputProps()}
+            />
           </div>
           <div className="d-grid my-3">
             <Button className="btn_green fw-bold" onClick={handleShow}>

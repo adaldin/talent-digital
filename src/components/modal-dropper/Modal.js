@@ -1,7 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function ModalDropper({ show, handleClose }) {
+function ModalDropper({ show, handleClose, invalidFiles }) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header className="bg_modal_dropper">
@@ -10,8 +10,8 @@ function ModalDropper({ show, handleClose }) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="bg_modal_dropper text-white">
-        No hemos podido subir tu archivo, revisa el formato o bien inténtalo de
-        nuevo
+        {`No hemos podido subir tu archivo, revisa el formato o bien inténtalo de
+        nuevo`}
       </Modal.Body>
       <Modal.Footer className="bg_modal_dropper justify-content-start">
         <div className="d-grid w-50 ">
