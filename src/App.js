@@ -1,7 +1,8 @@
-import Dropper from "./components/dropper/Dropper";
+// import Dropper from "./components/dropper/Dropper";
+import { DashboardRoutes } from "./routes/routes";
 
 function App() {
-  return <Dropper />;
+  return <DashboardRoutes />;
 }
 
 export default App;
