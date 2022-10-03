@@ -1,8 +1,12 @@
-// import Dropper from "./components/dropper/Dropper";
 import { DashboardRoutes } from "./routes/routes";
+import Container from "react-bootstrap/Container";
 
 function App() {
-  return <DashboardRoutes />;
+  return (
+    <Container fluid>
+      <DashboardRoutes />
+    </Container>
+  );
 }
 
 export default App;
