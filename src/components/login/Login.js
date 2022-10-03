@@ -43,6 +43,7 @@ function Login() {
             type="email"
             placeholder="Enter email"
             onChange={handleChange}
+            name="email"
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -55,6 +56,7 @@ function Login() {
             type="password"
             placeholder="Password"
             onChange={handleChange}
+            name="password"
           />
         </Form.Group>
         <div className="d-flex justify-content-center">

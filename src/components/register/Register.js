@@ -48,6 +48,7 @@ function Register() {
             type="text"
             placeholder="Enter your first name"
             onChange={handleChange}
+            name="fName"
           />
         </Form.Group>
 
@@ -57,6 +58,7 @@ function Register() {
             type="text"
             placeholder="Enter your last name"
             onChange={handleChange}
+            name="lName"
           />
         </Form.Group>
 
@@ -66,6 +68,7 @@ function Register() {
             type="email"
             placeholder="Enter email"
             onChange={handleChange}
+            name="email"
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -78,6 +81,7 @@ function Register() {
             type="password"
             placeholder="Password"
             onChange={handleChange}
+            name="password"
           />
         </Form.Group>
         <div className="d-flex justify-content-center">
