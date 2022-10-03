@@ -1,11 +1,14 @@
 import { DashboardRoutes } from "./routes/routes";
 import Container from "react-bootstrap/Container";
+import AuthProvider from "./context/AuthContext";
 
 function App() {
   return (
-    <Container fluid>
-      <DashboardRoutes />
-    </Container>
+    <AuthProvider>
+      <Container fluid>
+        <DashboardRoutes />
+      </Container>
+    </AuthProvider>
   );
 }
 

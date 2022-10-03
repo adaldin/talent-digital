@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 function Register() {
   return (
     <Row as={Form} className="p-3">
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicFirstName">
         <Form.Label>Name</Form.Label>
         <Form.Control type="text" placeholder="Enter your first name" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicLastName">
         <Form.Label>Last name</Form.Label>
         <Form.Control type="text" placeholder="Enter your last name" />
       </Form.Group>

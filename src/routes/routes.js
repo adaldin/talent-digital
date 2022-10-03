@@ -4,7 +4,6 @@ import Home from "../pages/home/Home";
 import Login from "../components/login/Login";
 import Register from "../components/register/Register";
 import ProtectedRoute from "../components/protectedRoute/ProtectedRoute";
-import Dropper from "../components/dropper/Dropper";
 
 export const DashboardRoutes = () => {
   return (
