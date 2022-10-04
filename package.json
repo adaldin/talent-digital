@@ -12,7 +12,6 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.2",
-    "react-filepond": "^7.1.2",
     "react-google-drive-picker": "^1.2.0",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
