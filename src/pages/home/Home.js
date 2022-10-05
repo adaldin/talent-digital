@@ -1,20 +1,17 @@
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 function Home() {
+  const { user } = useAuth();
   return (
     <>
       <Row>
-        <p className="text-center">Please, log in to drop-off your files</p>
-      </Row>
-      <Row>
-        <Button as={Link} to="/login">
-          Login
-        </Button>
-        <Button as={Link} to="/register">
-          Register
-        </Button>
+        {!user ? (
+          <div>HOME LANDING INFO</div>
+        ) : (
+          <Link to="/dropper">Comienza a cargar tus archivos</Link>
+        )}
       </Row>
     </>
   );

@@ -1,30 +1,28 @@
 import Button from "react-bootstrap/Button";
 import { driveKeys } from "../../config";
-import { useContext, useEffect, useState } from "react";
+// import { useContext } from "react";
 import useDrivePicker from "react-google-drive-picker/dist";
-import FilesContext from "../../context/FilesContext";
+// import FilesContext from "../../context/FilesContext";
 
 function DriveButton() {
   const [openPicker, authResponse] = useDrivePicker();
-  const { files, setFiles } = useContext(FilesContext);
+  // const { files, setFiles } = useContext(FilesContext);
 
   const handleOpenPicker = () => {
     openPicker({
       clientId: driveKeys.clientID,
       developerKey: driveKeys.apiKey,
       viewId: "DOCS",
-      // token: token, // pass oauth token in case you already have one
       showUploadView: true,
       showUploadFolders: true,
       supportDrives: false,
       multiselect: true,
-      // customViews: customViewsArray, // custom view
       callbackFunction: (data) => {
         if (data.action === "cancel") {
           console.log("User clicked cancel/close button");
         }
-        console.log(data);
-        setFiles(data.docs);
+
+        // setFiles(data.docs);
       },
     });
   };
