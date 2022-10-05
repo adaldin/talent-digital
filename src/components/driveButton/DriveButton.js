@@ -3,10 +3,11 @@ import { driveKeys } from "../../config";
 // import { useContext } from "react";
 import useDrivePicker from "react-google-drive-picker/dist";
 // import FilesContext from "../../context/FilesContext";
+import { addFiles } from "../../utils/files";
 
 function DriveButton() {
   const [openPicker, authResponse] = useDrivePicker();
-  // const { files, setFiles } = useContext(FilesContext);
+  // const { file, setFiles } = useContext(FilesContext);
 
   const handleOpenPicker = () => {
     openPicker({
@@ -21,8 +22,9 @@ function DriveButton() {
         if (data.action === "cancel") {
           console.log("User clicked cancel/close button");
         }
-
+        // console.log(data.docs[0].name);
         // setFiles(data.docs);
+        addFiles(data.docs);
       },
     });
   };

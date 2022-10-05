@@ -8,7 +8,8 @@ import { fileTypes } from "../../fileTypes";
 import { useDropzone } from "react-dropzone";
 import DriveButton from "../driveButton/DriveButton";
 import FilesContext from "../../context/FilesContext";
-import { Form } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import FileCard from "../fileCard/FileCard";
 
 function Dropper() {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
@@ -25,11 +26,19 @@ function Dropper() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [acceptedFiles]);
 
+  useEffect(() => {
+    if (files.length !== 0) {
+      let filesFromDrive = [...files];
+      setValidFiles(filesFromDrive);
+    }
+  }, [files]);
+
   // Logic
   const handleClose = () => setShow(false);
 
   const getFiles = () => {
     acceptedFiles.map((file) => {
+      console.log(acceptedFiles);
       if (fileTypes.includes(file.type)) {
         const newValidFiles = [];
         newValidFiles.push(file);
@@ -45,12 +54,16 @@ function Dropper() {
     });
   };
 
-  const handleSubmit = (e) => {
-    setFileDescription(
-      `Tu archivo ${validFiles.map(
-        (file) => file.name
-      )} se ha subido correctamente`
-    );
+  const handleSubmit = () => {
+    if (!validFiles) {
+      setFileDescription(
+        `Tu archivo ${validFiles.map(
+          (file) => file.name
+        )} se ha subido correctamente`
+      );
+    } else {
+      setFileDescription("Carga un archivo para poder subirlo");
+    }
   };
 
   return (
@@ -74,20 +87,11 @@ function Dropper() {
           className="dropper border border-success rounded d-flex  flex-column justify-content-center align-items-center"
           style={{ minHeight: "400px" }}
         >
-          <label htmlFor="dropOff" className="text-white text-center fs-4">
+          <p htmlFor="dropOff" className="text-white text-center fs-4">
             {fileDescription}
-          </label>
-
-          <input
-            className="bg-dark w-100 border-0"
-            id="dropOff"
-            {...getInputProps()}
-          />
-          <ul>
-            {files.map((file) => (
-              <li key={file.id}>{file.name}</li>
-            ))}
-          </ul>
+          </p>
+          <input className="w-100" {...getInputProps()} />
+          <FileCard />
         </div>
         <div className="d-grid my-3">
           <Button className="btn_green fw-bold" onClick={handleSubmit}>
