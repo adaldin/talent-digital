@@ -11,7 +11,6 @@ import FilesContext from "../../context/FilesContext";
 import { Form } from "react-bootstrap";
 
 function Dropper() {
-  // hooks
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
   const [show, setShow] = useState(false);
   const [invalidFiles, setInvalidFiles] = useState([]);
@@ -28,7 +27,6 @@ function Dropper() {
 
   // Logic
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   const getFiles = () => {
     acceptedFiles.map((file) => {
