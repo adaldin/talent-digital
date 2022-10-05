@@ -1,5 +1,5 @@
 import "../../global.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -7,15 +7,15 @@ import ModalDropper from "../modal-dropper/Modal";
 import { fileTypes } from "../../fileTypes";
 import { useDropzone } from "react-dropzone";
 import DriveButton from "../driveButton/DriveButton";
+import FilesContext from "../../context/FilesContext";
 
 function Dropper() {
   // hooks
-  // const isAnyFileLoaded=true/false
-  // const isFormatOk=true/false
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
   const [show, setShow] = useState(false);
   const [invalidFiles, setInvalidFiles] = useState([]);
   const [validFiles, setValidFiles] = useState([]);
+  const { files } = useContext(FilesContext);
 
   useEffect(() => {
     getFiles();
@@ -25,7 +25,8 @@ function Dropper() {
   // Logic
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  function getFiles() {
+
+  const getFiles = () => {
     acceptedFiles.map((file) => {
       if (fileTypes.includes(file.type)) {
         const newValidFiles = [];
@@ -39,7 +40,7 @@ function Dropper() {
       }
       return file;
     });
-  }
+  };
 
   return (
     <Row className="p-4 bg-dark">
@@ -68,6 +69,11 @@ function Dropper() {
             id="dropOff"
             {...getInputProps()}
           />
+          <ul>
+            {files.map((file) => (
+              <li key={file.id}>{file.name}</li>
+            ))}
+          </ul>
         </div>
         <div className="d-grid my-3">
           <Button className="btn_green fw-bold" onClick={handleShow}>
