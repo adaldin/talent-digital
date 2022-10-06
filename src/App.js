@@ -5,7 +5,7 @@ import AuthProvider from "./context/AuthContext";
 function App() {
   return (
     <AuthProvider>
-      <Container fluid>
+      <Container fluid className="bg-dark">
         <DashboardRoutes />
       </Container>
     </AuthProvider>

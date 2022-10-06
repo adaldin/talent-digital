@@ -6,9 +6,9 @@ function Home() {
   const { user } = useAuth();
   return (
     <>
-      <Row>
+      <Row className="min-vh-100">
         {!user ? (
-          <div>HOME LANDING INFO</div>
+          <div className="text-white">HOME LANDING INFO</div>
         ) : (
           <Link to="/dropper">Comienza a cargar tus archivos</Link>
         )}

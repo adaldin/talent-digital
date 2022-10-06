@@ -67,7 +67,7 @@ function Dropper() {
   };
 
   return (
-    <Row className="p-4 bg-dark">
+    <Row className="p-4 bg-dark min-vh-100">
       {show && (
         <ModalDropper
           show={show}

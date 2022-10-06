@@ -21,3 +21,17 @@
 .bg_modal_dropper{
     background: #232730;
 }
+
+.icon_btn{
+    background-color: transparent;
+    border: none;
+    padding: 10%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.icon_btn:hover{
+    background-color: #dfdfdf;
+    opacity: 0.5;
+}
