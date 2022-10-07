@@ -12,8 +12,7 @@ function DriveButton() {
       clientId: process.env.REACT_APP_DRIVE_CLIENT_ID,
       developerKey: process.env.REACT_APP_DRIVE_API_KEY,
       // replace this token with your token generated at https://developers.google.com/oauthplayground/
-      token:
-        "ya29.a0Aa4xrXOftIXCXwgY3IaKW8GLydud3Wqc06PPkbeDlrmo7W18hrY_XAz0dEszL3VaUscEPSjMNXM3j_IUuZVCE0Gl_UuMEymrho7DJ-g_i6kVhHvtcFzjgcJb4SOBKr2Odr0UoYiScMVl1EJu12yTyt5QJhFdaCgYKATASARESFQEjDvL9FQXuc45ra2xwDTmN4oo9fg0163",
+      token: "process.env.REACT_APP_DRIVE_TOKEN",
       viewId: "DOCS",
       showUploadView: true,
       showUploadFolders: true,
