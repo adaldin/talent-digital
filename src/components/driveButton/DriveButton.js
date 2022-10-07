@@ -11,6 +11,7 @@ function DriveButton() {
     openPicker({
       clientId: process.env.REACT_APP_DRIVE_CLIENT_ID,
       developerKey: process.env.REACT_APP_DRIVE_API_KEY,
+      // replace this token with your token generated at https://developers.google.com/oauthplayground/
       token: process.env.REACT_APP_DRIVE_TOKEN,
       viewId: "DOCS",
       showUploadView: true,
