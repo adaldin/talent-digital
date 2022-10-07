@@ -1,5 +1,4 @@
 import Button from "react-bootstrap/Button";
-import { driveKeys } from "../../config";
 import useDrivePicker from "react-google-drive-picker/dist";
 import useFiles from "../../context/FilesContext";
 import { fileTypes } from "../../fileTypes";
@@ -10,9 +9,9 @@ function DriveButton() {
 
   const handleOpenPicker = () => {
     openPicker({
-      clientId: driveKeys.clientID,
-      developerKey: driveKeys.apiKey,
-      token: driveKeys.token,
+      clientId: process.env.REACT_APP_DRIVE_CLIENT_ID,
+      developerKey: process.env.REACT_APP_DRIVE_API_KEY,
+      token: process.env.REACT_APP_DRIVE_TOKEN,
       viewId: "DOCS",
       showUploadView: true,
       showUploadFolders: true,
