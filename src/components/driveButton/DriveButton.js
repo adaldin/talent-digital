@@ -4,14 +4,14 @@ import useFiles from "../../context/FilesContext";
 import { fileTypes } from "../../fileTypes";
 
 function DriveButton() {
-  const [openPicker] = useDrivePicker();
+  const [openPicker, authResponse] = useDrivePicker();
   const { addFile } = useFiles();
 
   const handleOpenPicker = () => {
     openPicker({
-      clientId: "process.env.REACT_APP_DRIVE_CLIENT_ID",
-      developerKey: "process.env.REACT_APP_DRIVE_API_KEY",
-      token: "process.env.REACT_APP_DRIVE_TOKEN",
+      clientId: process.env.REACT_APP_DRIVE_CLIENT_ID,
+      developerKey: process.env.REACT_APP_DRIVE_API_KEY,
+      token: process.env.REACT_APP_DRIVE_TOKEN,
       viewId: "DOCS",
       showUploadView: true,
       showUploadFolders: true,
