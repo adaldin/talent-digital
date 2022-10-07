@@ -9,9 +9,9 @@ function DriveButton() {
 
   const handleOpenPicker = () => {
     openPicker({
-      clientId: process.env.REACT_APP_DRIVE_CLIENT_ID,
-      developerKey: process.env.REACT_APP_DRIVE_API_KEY,
-      token: process.env.REACT_APP_DRIVE_TOKEN,
+      clientId: "process.env.REACT_APP_DRIVE_CLIENT_ID",
+      developerKey: "process.env.REACT_APP_DRIVE_API_KEY",
+      token: "process.env.REACT_APP_DRIVE_TOKEN",
       viewId: "DOCS",
       showUploadView: true,
       showUploadFolders: true,
