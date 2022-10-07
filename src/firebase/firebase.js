@@ -5,9 +5,9 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: "dropoff-f4704.firebaseapp.com",
-  projectId: "dropoff-f4704",
-  storageBucket: "dropoff-f4704.appspot.com",
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
