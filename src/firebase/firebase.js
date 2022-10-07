@@ -2,9 +2,16 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { keys } from "../config.js";
+import { keys } from "../config";
 
-const firebaseConfig = keys;
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: "dropoff-f4704.firebaseapp.com",
+  projectId: "dropoff-f4704",
+  storageBucket: "dropoff-f4704.appspot.com",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+};
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
