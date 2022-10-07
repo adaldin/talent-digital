@@ -4,7 +4,7 @@ import useFiles from "../../context/FilesContext";
 import { fileTypes } from "../../fileTypes";
 
 function DriveButton() {
-  const [openPicker, authResponse] = useDrivePicker();
+  const [openPicker] = useDrivePicker();
   const { addFile } = useFiles();
 
   const handleOpenPicker = () => {
