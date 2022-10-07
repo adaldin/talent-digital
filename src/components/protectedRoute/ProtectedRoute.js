@@ -3,7 +3,7 @@ import Dropper from "../dropper/Dropper";
 import { useAuth } from "../../context/AuthContext";
 
 function ProtectedRoute({ children }) {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
 
   if (user) return <Dropper />;
   if (!user) return <Navigate to="/">ProtectedRoute</Navigate>;

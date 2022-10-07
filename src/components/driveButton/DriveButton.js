@@ -1,33 +1,39 @@
 import Button from "react-bootstrap/Button";
 import { driveKeys } from "../../config";
-// import { useContext } from "react";
 import useDrivePicker from "react-google-drive-picker/dist";
-// import FilesContext from "../../context/FilesContext";
-import { addFiles } from "../../utils/files";
+import useFiles from "../../context/FilesContext";
+import { fileTypes } from "../../fileTypes";
 
 function DriveButton() {
   const [openPicker, authResponse] = useDrivePicker();
-  // const { file, setFiles } = useContext(FilesContext);
+  const { addFile } = useFiles();
 
   const handleOpenPicker = () => {
     openPicker({
       clientId: driveKeys.clientID,
       developerKey: driveKeys.apiKey,
+      token: driveKeys.token,
       viewId: "DOCS",
       showUploadView: true,
       showUploadFolders: true,
       supportDrives: false,
       multiselect: true,
+      setSelectFolderEnabled: true,
+      viewMimeTypes: "application/json",
       callbackFunction: (data) => {
-        if (data.action === "cancel") {
-          console.log("User clicked cancel/close button");
+        if (data.action === "picked") {
+          data.docs.forEach((file) => {
+            if (fileTypes.includes(file.mimeType)) {
+              addFile(file);
+            } else {
+              console.log("invalidType");
+            }
+          });
         }
-        // console.log(data.docs[0].name);
-        // setFiles(data.docs);
-        addFiles(data.docs);
       },
     });
   };
+
   return (
     <div className="d-grid">
       <Button

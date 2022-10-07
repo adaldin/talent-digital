@@ -1,5 +1,3 @@
-import Button from "react-bootstrap/Button";
-
 function FileCard({ name }) {
   return (
     <div className="border border-success rounded d-flex align-items-center justify-content-between gap-2  ">

@@ -1,5 +1,5 @@
 import "../../global.css";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -7,59 +7,70 @@ import ModalDropper from "../modal-dropper/Modal";
 import { fileTypes } from "../../fileTypes";
 import { useDropzone } from "react-dropzone";
 import DriveButton from "../driveButton/DriveButton";
-import FilesContext from "../../context/FilesContext";
 import Form from "react-bootstrap/Form";
-import FileCard from "../fileCard/FileCard";
+import useFiles from "../../context/FilesContext";
+import { render } from "@testing-library/react";
 
 function Dropper() {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    noClick: true,
+  });
   const [show, setShow] = useState(false);
   const [invalidFiles, setInvalidFiles] = useState([]);
-  const [validFiles, setValidFiles] = useState([]);
   const [fileDescription, setFileDescription] = useState(
     "ARRASTRA TUS ARCHIVOS AQUÍ"
   );
-  const { files } = useContext(FilesContext);
+  const { files, addFile } = useFiles();
 
   useEffect(() => {
-    getFiles();
+    loadFile();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [acceptedFiles]);
 
   useEffect(() => {
-    if (files.length !== 0) {
-      let filesFromDrive = [...files];
-      setValidFiles(filesFromDrive);
+    function displayFiles() {
+      if (files !== undefined && files.length === 1) {
+        setFileDescription(
+          `Tu archivo ${files[0].name} está listo para subirse`
+        );
+      } else if (files !== undefined && files.length > 2) {
+        setFileDescription(
+          `Tus archivos ${files.map(
+            (file) => ` ${file.name}`
+          )} están listos para subirse`
+        );
+      }
     }
+    displayFiles();
   }, [files]);
 
   // Logic
   const handleClose = () => setShow(false);
 
-  const getFiles = () => {
-    acceptedFiles.map((file) => {
-      console.log(acceptedFiles);
+  const loadFile = () => {
+    acceptedFiles.forEach((file) => {
       if (fileTypes.includes(file.type)) {
-        const newValidFiles = [];
-        newValidFiles.push(file);
-        setValidFiles(newValidFiles);
-        setFileDescription(`${file.name} está pendiente de subir`);
+        console.log(render.result);
+        addFile(file);
       } else {
         const newInvalidFiles = [];
         invalidFiles.push(file);
         setInvalidFiles(newInvalidFiles);
         setShow(true);
       }
-      return file;
     });
   };
 
   const handleSubmit = () => {
-    if (!validFiles) {
+    if (files.length > 0 && files.length < 2) {
       setFileDescription(
-        `Tu archivo ${validFiles.map(
-          (file) => file.name
-        )} se ha subido correctamente`
+        `Tu archivo ${files[0].name} se ha subido correctamente`
+      );
+    } else if (files.length > 2) {
+      setFileDescription(
+        `Tus archivos ${files.map(
+          (file) => ` ${file.name}`
+        )} se han subido correctamente`
       );
     } else {
       setFileDescription("Carga un archivo para poder subirlo");
@@ -91,7 +102,6 @@ function Dropper() {
             {fileDescription}
           </p>
           <input className="w-100" {...getInputProps()} />
-          <FileCard />
         </div>
         <div className="d-grid my-3">
           <Button className="btn_green fw-bold" onClick={handleSubmit}>
