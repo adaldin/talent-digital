@@ -51,7 +51,9 @@ function Home() {
             />
             <Carousel.Caption>
               <h3 className="text-success">Choose the right extension</h3>
-              <p className="text-success">Upload a JPG, JSON or PDF files</p>
+              <p className="text-success">
+                Upload a JPG, JSON, PDF or JS files
+              </p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
