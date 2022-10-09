@@ -6,7 +6,7 @@ function Header() {
   const { user, logout } = useAuth();
 
   return (
-    <div className="d-flex justify-content-between bg-dark">
+    <div className="d-flex justify-content-between bg-dark pt-2">
       <Link
         to="/"
         className="text-decoration-none text-white fw-bold fs-3 d-flex justify-content-center align-items-baseline gap-2"
