@@ -24,7 +24,7 @@ Para utilizar esta app sigue los siguientes pasos
 ## Tecnologías implementadas
 
 - [React](https://es.reactjs.org/).
-- [React-Bootstrap] (https://react-bootstrap.github.io/getting-started/introduction/)
+- [React-Bootstrap](https://react-bootstrap.github.io/getting-started/introduction/)
 - [FireBase](https://firebase.google.com/)
 - [Google Drive API](https://developers.google.com/drive/api)
 - [React Google Drive Picker](https://www.npmjs.com/package/react-google-picker)
