@@ -34,6 +34,8 @@ Para utilizar esta app sigue los siguientes pasos
 ### Arquitectura
 
 Dado a la poca complejidad de la app, se han dividido las carpetas en las siguientes subcarpetas:
+
+```
 src
 ┣ assets
 ┃ ┣ pexels-cottonbro-5083396.jpg
@@ -73,6 +75,7 @@ src
 ┣ index.js
 ┣ reportWebVitals.js
 ┗ setupTests.js
+```
 
 ### Author
 
