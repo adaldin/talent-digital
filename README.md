@@ -34,7 +34,45 @@ Para utilizar esta app sigue los siguientes pasos
 ### Arquitectura
 
 Dado a la poca complejidad de la app, se han dividido las carpetas en las siguientes subcarpetas:
-`📦src ┣ 📂assets ┃ ┣ 📜pexels-cottonbro-5083396.jpg ┃ ┣ 📜pexels-karolina-grabowska-4977484.jpg ┃ ┗ 📜pexels-mizuno-k-12899121.jpg ┣ 📂components ┃ ┣ 📂driveButton ┃ ┃ ┗ 📜DriveButton.js ┃ ┣ 📂dropper ┃ ┃ ┗ 📜Dropper.js ┃ ┣ 📂header ┃ ┃ ┗ 📜Header.js ┃ ┣ 📂login ┃ ┃ ┗ 📜Login.js ┃ ┣ 📂modal-dropper ┃ ┃ ┗ 📜Modal.js ┃ ┣ 📂protectedRoute ┃ ┃ ┗ 📜ProtectedRoute.js ┃ ┗ 📂register ┃ ┃ ┗ 📜Register.js ┣ 📂context ┃ ┣ 📜AuthContext.js ┃ ┣ 📜FilesContext.js ┃ ┗ 📜filesReducer.js ┣ 📂firebase ┃ ┗ 📜firebase.config.js ┣ 📂pages ┃ ┗ 📂home ┃ ┃ ┗ 📜Home.js ┣ 📂routes ┃ ┗ 📜routes.js ┣ 📜App.js ┣ 📜config.js ┣ 📜fileTypes.js ┣ 📜global.css ┣ 📜index.css ┣ 📜index.js ┣ 📜reportWebVitals.js ┗ 📜setupTests.js`
+src
+┣ assets
+┃ ┣ pexels-cottonbro-5083396.jpg
+┃ ┣ pexels-karolina-grabowska-4977484.jpg
+┃ ┗ pexels-mizuno-k-12899121.jpg
+┣ components
+┃ ┣ driveButton
+┃ ┃ ┗ DriveButton.js
+┃ ┣ dropper
+┃ ┃ ┗ Dropper.js
+┃ ┣ header
+┃ ┃ ┗ Header.js
+┃ ┣ login
+┃ ┃ ┗ Login.js
+┃ ┣ modal-dropper
+┃ ┃ ┗ Modal.js
+┃ ┣ protectedRoute
+┃ ┃ ┗ ProtectedRoute.js
+┃ ┗ register
+┃ ┃ ┗ Register.js
+┣ context
+┃ ┣ AuthContext.js
+┃ ┣ FilesContext.js
+┃ ┗ filesReducer.js
+┣ firebase
+┃ ┗ firebase.config.js
+┣ pages
+┃ ┗ home
+┃ ┃ ┗ Home.js
+┣ routes
+┃ ┗ routes.js
+┣ App.js
+┣ config.js
+┣ fileTypes.js
+┣ global.css
+┣ index.css
+┣ index.js
+┣ reportWebVitals.js
+┗ setupTests.js
 
 ### Author
 
