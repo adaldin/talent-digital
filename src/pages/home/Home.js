@@ -12,9 +12,9 @@ function Home() {
     <>
       <Row className="min-vh-100 my-4">
         <Carousel pause="hover">
-          <Carousel.Item>
+          <Carousel.Item className="text-center">
             <img
-              className="img-fluid rounded"
+              className="img-fluid rounded mx-auto"
               src={SlidePic1}
               alt="First slide"
             />
@@ -30,9 +30,9 @@ function Home() {
               </p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item className="text-center">
             <img
-              className="img-fluid rounded"
+              className="img-fluid rounded mx-auto"
               src={SlidePic2}
               alt="Second slide"
             />
@@ -43,7 +43,7 @@ function Home() {
               </p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item className="text-center">
             <img
               className="img-fluid rounded"
               src={SlidePic3}
